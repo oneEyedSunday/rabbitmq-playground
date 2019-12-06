@@ -721,11 +721,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ispoa/Projects/RabbitMQ/Receive/Receive.csproj",
-      "projectName": "Receive",
-      "projectPath": "/Users/ispoa/Projects/RabbitMQ/Receive/Receive.csproj",
+      "projectUniqueName": "/Users/ispoa/Projects/RabbitMQ/Send/Send.csproj",
+      "projectName": "Send",
+      "projectPath": "/Users/ispoa/Projects/RabbitMQ/Send/Send.csproj",
       "packagesPath": "/Users/ispoa/.nuget/packages/",
-      "outputPath": "/Users/ispoa/Projects/RabbitMQ/Receive/obj/",
+      "outputPath": "/Users/ispoa/Projects/RabbitMQ/Send/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
