@@ -25,6 +25,20 @@ dotnet run
 
 
 ## TODOs
-[] Accept messages to broadcast from command line
+[x] Accept messages to broadcast from command line
 
 [] Try sending objects other than strings
+
+
+### Fan Out
+Pass logs to logfile
+```sh
+cd ReceiveLog
+dotnet run $NUMBEROFLOGENTRIES > $LOGFILENAME
+```
+
+otherwise
+```sh
+cd ReceiveLog
+dotnet run 
+```
