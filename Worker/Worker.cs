@@ -29,9 +29,7 @@ namespace Worker
                 string message = Encoding.UTF8.GetString(body);
                 Console.WriteLine(" [x] Received {0}", message);
 
-                // TODO (oneeyedsunday) do some real life time consuming work here
-                int dots = message.Split('.').Length - 1;
-                Thread.Sleep(dots * 1000);
+                Computation.TimeConsuming(message.Split('.').Length - 1);
 
                 Console.WriteLine(" [x] Done");
             };
