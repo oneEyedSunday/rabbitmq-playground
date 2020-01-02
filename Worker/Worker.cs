@@ -22,6 +22,8 @@ namespace Worker
                 autoDelete: false,
                 arguments: null);
 
+            channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+
             EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
             consumer.Received += (model, ea) =>
             {
