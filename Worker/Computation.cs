@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using NetVips;
 
 namespace Worker
 {
@@ -8,7 +9,8 @@ namespace Worker
 
         private Computation(int dots)
         {
-            int cmpSwitch = new Random().Next(1, 3);
+            
+            int cmpSwitch = new Random().Next(1, 4);
 
             switch (cmpSwitch)
             {
@@ -17,6 +19,9 @@ namespace Worker
                     break;
                 case 2:
                     threadSleep(dots);
+                    break;
+                case 3:
+                    ResizeImage();
                     break;
                 default:
                     FindPrimeNumber(1000);
@@ -33,6 +38,38 @@ namespace Worker
         public void threadSleep(int dots)
         {
             Thread.Sleep(dots * 1000);
+        }
+
+        public void ResizeImage()
+        {
+            Console.WriteLine("Before resing");
+            Image image, attentionImg;
+            try
+            {
+                image = Image.NewFromFile("/Users/ispoa/Projects/RabbitMQ/Worker/assets/original.jpg").ThumbnailImage(300, 300);
+                Console.WriteLine(image);
+                attentionImg = Image.Thumbnail("/Users/ispoa/Projects/RabbitMQ/Worker/assets/original.jpg", 300, 300, crop: "attention");
+                Console.WriteLine(attentionImg);
+
+                try
+                {
+                    image.WriteToFile("/Users/ispoa/Projects/RabbitMQ/Worker/assets/resize.jpg");
+                    attentionImg.WriteToFile("/Users/ispoa/Projects/RabbitMQ/Worker/assets/resize_attention.jpg");
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.GetBaseException().Message);
+                }
+                finally
+                {
+                    Console.WriteLine("Post Resixing");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.GetBaseException().Message);
+            }
         }
 
         // https://stackoverflow.com/a/13001749
