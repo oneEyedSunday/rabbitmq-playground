@@ -46,15 +46,15 @@ namespace Worker
             Image image, attentionImg;
             try
             {
-                image = Image.NewFromFile("/Users/ispoa/Projects/RabbitMQ/Worker/assets/original.jpg").ThumbnailImage(300, 300);
+                image = Image.NewFromFile("assets/original.jpg").ThumbnailImage(300, 300);
                 Console.WriteLine(image);
-                attentionImg = Image.Thumbnail("/Users/ispoa/Projects/RabbitMQ/Worker/assets/original.jpg", 300, 300, crop: "attention");
+                attentionImg = Image.Thumbnail("assets/original.jpg", 300, 300, crop: "attention");
                 Console.WriteLine(attentionImg);
 
                 try
                 {
-                    image.WriteToFile("/Users/ispoa/Projects/RabbitMQ/Worker/assets/resize.jpg");
-                    attentionImg.WriteToFile("/Users/ispoa/Projects/RabbitMQ/Worker/assets/resize_attention.jpg");
+                    image.WriteToFile("assets/resize.jpg");
+                    attentionImg.WriteToFile("assets/resize_attention.jpg");
 
                 }
                 catch (Exception e)
